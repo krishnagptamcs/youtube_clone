@@ -6,11 +6,24 @@ export const Context = createContext();
 
 export const AppContext = (props) => {
   const [loading, setLoading] = useState(false);
-  const [searchResult, setSearchResult] = useState(false);
-  const [selectCategories, setSelectCategories] = useState(false);
+  const [searchResult, setSearchResult] = useState([]);
+  const [selectCategories, setSelectCategories] = useState("New");
   const [mobileMenu, setMobileMenu] = useState(false);
 
-  useEffect(() => {}, []);
+  // at starting the fethicng will be done automatically 
+  useEffect(() => {
+    fetchSelectedCategoriesData(selectCategories);
+  }, [selectCategories]);
+
+  function fetchSelectedCategoriesData(query) {
+    setLoading(true);
+    fetchData(`search/?q=${query}`).then(({contents}) => {
+      console.log(contents);
+      setSearchResult(contents);
+      console.log("the content in search resukt is ", searchResult)
+      setLoading(false);
+    });
+  }
 
   return (
     <Context.Provider

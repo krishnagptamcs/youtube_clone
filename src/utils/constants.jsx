@@ -1,4 +1,3 @@
-// imported from the gist git
 import React from "react";
 
 import { AiFillHome, AiOutlineFlag } from "react-icons/ai";
@@ -23,7 +22,7 @@ export const categories = [
     { name: "Learning", icon: <RiLightbulbLine />, type: "category" },
     {
         name: "Fashion & beauty",
-        icon: <GiEclipse />,
+        icon:<GiEclipse />,
         type: "category",
         divider: true,
     },
