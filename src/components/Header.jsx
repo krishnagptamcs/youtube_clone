@@ -10,7 +10,7 @@ import { RiVideoAddLine } from "react-icons/ri";
 import { FiBell } from "react-icons/fi";
 import { CgClose } from "react-icons/cg";
 
-import { Context } from "../context/contextApi";
+import { Context } from "../context/contextAPI";
 import Loader from "../shared/loader";
 
 const Header = () => {
@@ -24,19 +24,22 @@ const Header = () => {
       (event?.key === "Enter" || event === "searchButton") &&
       searchQuery?.length > 0
     ) {
+      // we are passing the seacrh text in url so that we can get it from params
       navigate(`/searchResult/${searchQuery}`);
+      event.target.value = "";
     }
   };
 
   const mobileMenuToggle = () => {
     setMobileMenu(!mobileMenu);
+    console.log("you clicked me baby");
   };
 
   const { pathname } = useLocation();
   const pageName = pathname?.split("/")?.filter(Boolean)?.[0];
 
   return (
-    <div className="sticky top-0  flex flex-row items-center justify-between  h-14 px-4  md:px-5   bg-black">
+    <div className="sticky top-0 z-10 flex flex-row items-center justify-between  h-14 px-4  md:px-5   bg-black">
       {loading && <Loader />}
 
       <div className="flex h-5 items-center">
@@ -54,7 +57,8 @@ const Header = () => {
         )}
         <Link to="/" className="flex h-5 items-center">
           <img
-            className="h-full sm:hidden  lg:block "
+            className="h-full max-[450px]:hidden  lg:block "
+            // className="h-full hidden dark:md:block"
             src={ytLogo}
             alt="Youtube"
           />
@@ -92,9 +96,10 @@ const Header = () => {
           <div className="flex items-center justify-center ml-2 h-10 w-10 rounded-full hover:bg-[#303030]/[0.6]">
             <FiBell className="text-white text-xl cursor-pointer" />
           </div>
-          <div className="flex h-8 w-8 overflow-hidden rounded-full md:ml-4">
-            <img src="https://xsgames.co/randomusers/assets/avatars/female/67.jpg" />
-          </div>
+        </div>
+        {/* user profile icon */}
+        <div className="flex h-8 w-8 overflow-hidden rounded-full md:ml-4">
+          <img src="https://xsgames.co/randomusers/assets/avatars/female/67.jpg" />
         </div>
       </div>
     </div>

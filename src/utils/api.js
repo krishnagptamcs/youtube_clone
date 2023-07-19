@@ -9,7 +9,7 @@ const options = {
     gl: "US",
   },
   headers: {
-    "X-RapidAPI-Key": "eaf3776a6fmshfe15cb8c2a73959p13b671jsn07625ac21c3b",
+    "X-RapidAPI-Key": "354ebb562emsh7f86c247d1d2ab8p16f8cfjsn6b19cdc1c434",
     "X-RapidAPI-Host": "youtube138.p.rapidapi.com",
   },
 };
