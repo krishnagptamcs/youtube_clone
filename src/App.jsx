@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
-import { AppContext } from "./context/contextApi";
+import  {AppContext}  from "./context/contextAPI";
 import "./App.css";
 import Feed from "./components/Feed";
 import SearchResult from "./components/SearchResult";
